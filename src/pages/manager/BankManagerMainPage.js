@@ -5,7 +5,7 @@ export class BankManagerMainPage {
     this.page = page;
     this.addCustomerButton = page.getByRole('button', { name: 'Add Customer' });
     this.openAccountButton = page.getByRole('button', { name: 'Open Account' });
-    this.cutomersButton = page.getByRole('button', { name: 'Customers' });
+    this.customersButton = page.getByRole('button', { name: 'Customers' });
   }
 
   async open() {
@@ -16,14 +16,14 @@ export class BankManagerMainPage {
     await this.page.waitForTimeout(1000);
   }
 
-  async assertAssertAddCustomerButtonIsVisible() {
+  async assertAddCustomerButtonIsVisible() {
     await expect(this.addCustomerButton).toBeVisible();
   }
-  async assertAssertOpenAccountButtonIsVisible() {
+  async assertOpenAccountButtonIsVisible() {
     await expect(this.openAccountButton).toBeVisible();
   }
-  async assertAssertCutomersButtonIsVisible() {
-    await expect(this.cutomersButton).toBeVisible();
+  async assertCutomersButtonIsVisible() {
+    await expect(this.customersButton).toBeVisible();
   }
   
 }

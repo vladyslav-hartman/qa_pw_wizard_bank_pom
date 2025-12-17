@@ -3,7 +3,7 @@ import { expect } from '@playwright/test';
 export class OpenAccountPage {
   constructor(page) {
     this.page = page;
-    this.cusomersButton = page.getByRole('button', { name: 'Customers' });
+    this.customersButton = page.getByRole('button', { name: 'Customers' });
     this.customerSelect = page.getByTestId('userSelect');
     this.currencySelect = page.getByTestId('currency');
     this.processButton = page.getByRole('button', { name: 'Process' });
@@ -39,7 +39,7 @@ export class OpenAccountPage {
     await this.processButton.click();
   }
   async clickCustomersButton() {
-    await this.cusomersButton.click();
+    await this.customersButton.click();
   }
 
 }
