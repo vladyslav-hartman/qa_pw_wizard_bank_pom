@@ -1,9 +1,11 @@
 import { test } from '@playwright/test';
 import { faker } from '@faker-js/faker';
+import { AddCustomerPage } from '../../../src/pages/manager/AddCustomerPage';
+import { CustomersListPage } from '../../../src/pages/manager/CustomersListPage';
 
 let firstName;
 let lastName;
-let postalCode;
+let postCode;
 
 test.beforeEach(async ({ page }) => {
   /* 
@@ -16,7 +18,14 @@ test.beforeEach(async ({ page }) => {
   */
   firstName = faker.person.firstName();
   lastName = faker.person.lastName();
-  postalCode = faker.location.zipCode();
+  postCode = faker.location.zipCode();
+  const addCustomerPage = new AddCustomerPage(page);
+  await addCustomerPage.open();  
+  await addCustomerPage.fillFirstNameField(firstName);
+  await addCustomerPage.fillLastNameField(lastName);
+  await addCustomerPage.fillPostCodeField(postCode);
+  await addCustomerPage.clickAddCustomerButton();
+  await addCustomerPage.reloadPage();
 });
 
 test('Assert manager can search customer by First Name', async ({ page }) => {
@@ -27,4 +36,9 @@ test('Assert manager can search customer by First Name', async ({ page }) => {
   3. Assert customer row is present in the table. 
   4. Assert no other rows is present in the table.
   */
+  const customersListPage = new CustomersListPage(page);
+  await customersListPage.open();
+  await customersListPage.fillSearchField(firstName);
+  await customersListPage.expectCustomerRowWithName(firstName);
+  await customersListPage.expectOnlyOneCustomerRow();
 });
