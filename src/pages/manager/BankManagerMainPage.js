@@ -22,7 +22,7 @@ export class BankManagerMainPage {
   async assertOpenAccountButtonIsVisible() {
     await expect(this.openAccountButton).toBeVisible();
   }
-  async assertCutomersButtonIsVisible() {
+  async assertCustomersButtonIsVisible() {
     await expect(this.customersButton).toBeVisible();
   }
   

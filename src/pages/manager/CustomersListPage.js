@@ -36,8 +36,7 @@ export class CustomersListPage {
   }
 
   async assertLastCustomerAccountNumber() {
-    const accountCell = this.lastCustomerRow.locator('td').nth(3);
-    await expect(accountCell).toBeEmpty();
+    await expect(this.accountNumberCell).toBeEmpty();
   }
 
   async clickDeleteNewCustomerButton() {
