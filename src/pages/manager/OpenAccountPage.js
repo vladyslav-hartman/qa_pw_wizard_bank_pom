@@ -15,10 +15,6 @@ export class OpenAccountPage {
     );
   }
 
-  async wait() {
-    await this.page.waitForTimeout(1000);
-  }
-
   async reloadPage() {
     await this.page.reload();
   }

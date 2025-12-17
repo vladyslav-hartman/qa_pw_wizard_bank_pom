@@ -15,10 +15,6 @@ export class BankHomePage {
     await this.page.goto('/angularJs-protractor/BankingProject/#/login');
   }
 
-  async wait() {
-    await this.page.waitForTimeout(1000);
-  }
-
   async clickCustomerLoginButton() {
     await this.customerLoginButton.click();
   }

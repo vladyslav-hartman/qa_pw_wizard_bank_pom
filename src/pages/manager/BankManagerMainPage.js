@@ -12,10 +12,6 @@ export class BankManagerMainPage {
     await this.page.goto('/angularJs-protractor/BankingProject/#/manager');
   }
 
-  async wait() {
-    await this.page.waitForTimeout(1000);
-  }
-
   async assertAddCustomerButtonIsVisible() {
     await expect(this.addCustomerButton).toBeVisible();
   }

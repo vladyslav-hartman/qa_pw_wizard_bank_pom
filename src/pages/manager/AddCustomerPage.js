@@ -18,10 +18,6 @@ export class AddCustomerPage {
     );
   }
 
-  async wait() {
-    await this.page.waitForTimeout(1000);
-  }
-
   async fillFirstNameField(firstName) {
     await this.firstNameField.fill(firstName);
   }

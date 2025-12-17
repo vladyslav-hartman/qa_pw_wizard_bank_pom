@@ -15,10 +15,6 @@ export class CustomersListPage {
     await this.page.goto('/angularJs-protractor/BankingProject/#/manager/list');
   }
 
-  async wait() {
-    await this.page.waitForTimeout(1000);
-  }
-
   async reloadPage() {
     await this.page.reload();
   }

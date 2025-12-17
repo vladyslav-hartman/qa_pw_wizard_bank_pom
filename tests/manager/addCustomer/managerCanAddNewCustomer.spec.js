@@ -40,9 +40,7 @@ test('Assert manager can add new customer', async ({ page }) => {
   await addCustomerPage.clickAddCustomerButton();
   await addCustomerPage.reloadPage();
   await addCustomerPage.clickCustomersButton();
-  await page.locator('table').waitFor();
   const customersListPage = new CustomersListPage(page);
-  await customersListPage.lastCustomerRow.first().waitFor();
   await customersListPage.assertLastCustomerFirstName(firstName);
   await customersListPage.assertLastCustomerLastName(lastName);
   await customersListPage.assertLastCustomerPostCode(postCode);
